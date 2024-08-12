@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="container-tela1">
+      <img class="pose1" src="assets/tela1/1-tela-1-sogesp.png" alt="Image 1" />
+      <img src="assets/tela1/2-tela-1-sogesp.png" alt="Image 2" />
+      <div class="container-texts">
+        <h1>Olá, eu sou a Lis!</h1>
+        <p>
+          Separei alguns conteúdos para que você possa conhecer melhor nossa
+          empresa.
+        </p>
+      </div>
+      <div class="container-info">
+        <p>Clique no tema que deseja explorar:</p>
+        <img src="assets/tela1/contents.png" alt="content" />
+        <div class="first-div" onclick="navigateTo('dist/purpose.html')"></div>
+        <div
+          class="second-div"
+          onclick="navigateTo('dist/campaign.html')"
+        ></div>
+        <div class="third-div"></div>
+        <div class="fourth-div"></div>
+        <div class="fifth-div"></div>
+      </div>
+    </div>
+
+    <script>
+      function navigateTo(path) {
+        // Basic client-side navigation
+        window.location.href = path
+      }
+    </script>
+  </body>
+</html>

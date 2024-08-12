@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <div class="container-tela3">
+      <img src="../assets/tela3/1-tela-3-sogesp.png" alt="Image 1" />
+      <img
+        class="film-image"
+        src="../assets/tela3/2-tela-3-sogesp.png"
+        alt="Film Image"
+      />
+      <div class="carousel-wrapper">
+        <div class="carousel-button" onclick="scrollCarousel(-1)">
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
+            ></path>
+          </svg>
+        </div>
+        <div class="carousel">
+          <div class="carousel-item">
+            <img
+              class="div-image"
+              src="../assets/tela3/6-tela-3.1-sogesp.png"
+              alt="Film Image 1"
+            />
+            <!-- <button class="play-button">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8 5.14v14l11-7-11-7z"
+                  fill="#4CAF50"
+                />
+              </svg>
+            </button> -->
+            <img
+              class="player-label"
+              src="../assets/tela3/player-label.png"
+              alt=""
+            />
+            <p class="video-text">Assistir vídeo da Juliette</p>
+          </div>
+          <div class="carousel-item">
+            <img
+              class="div-image"
+              src="../assets/tela3/8-tela-3.1-sogesp.png"
+              alt="Film Image 2"
+            />
+            <img
+              class="player-label"
+              src="../assets/tela3/player-label.png"
+              alt=""
+            />
+            <p class="video-text">Assistir vídeo da Maria Ângela</p>
+          </div>
+          <div class="carousel-item">
+            <img
+              class="div-image"
+              src="../assets/tela3/9-tela-3.1-sogesp.png"
+              alt="Film Image 3"
+            />
+            <img
+              class="player-label"
+              src="../assets/tela3/player-label.png"
+              alt=""
+            />
+            <p class="video-text">Assistir vídeo da Ana Paula</p>
+          </div>
+          <div class="carousel-item">
+            <img
+              class="div-image"
+              src="../assets/tela3/10-tela-3.1-sogesp.png"
+              alt="Film Image 3"
+            />
+            <img
+              class="player-label"
+              src="../assets/tela3/player-label.png"
+              alt=""
+            />
+            <p class="video-text">Assistir vídeo da Ana Paula</p>
+          </div>
+        </div>
+
+        <img
+          id="myImage"
+          class="carousel-button2 right"
+          src="../assets/tela3/arrow-right2.png"
+          alt="forward arrow"
+          onclick="scrollCarousel(1)"
+        />
+      </div>
+
+      <img
+        class="campaign-text"
+        src="../assets/tela3/3-tela-3-sogesp.png"
+        alt="Campaign Text"
+      />
+
+      <a href="../index.html">
+        <img class="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" />
+      </a>
+      <!-- <img class="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" /> -->
+    </div>
+
+    <script>
+      function scrollCarousel(direction) {
+        const carousel = document.querySelector(".carousel")
+        const scrollAmount = 300 // Adjust based on your design
+
+        carousel.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        })
+      }
+    </script>
+  </body>
+</html>
