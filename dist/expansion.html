@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto de expansão</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var animation = lottie.loadAnimation({
+          container: document.getElementById("lottie-icon"), // ID do contêiner onde o ícone será renderizado
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "../assets/back.json", // Caminho para o arquivo JSON do ícone Lottie
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container-tela5">
+      <img src="../assets/tela4/1-tela-4-sogesp.png" />
+      <img class="film-image" src="../assets/tela6/2-tela-6-sogesp.png" />
+      <img
+        class="acting-text"
+        src="../assets/tela6/3-tela-6-sogesp.png"
+        alt="Atuação"
+      />
+      <div
+        id="lottie-icon"
+        style="
+          width: 100px;
+          height: 250px;
+          position: absolute;
+          bottom: -42px;
+          right: 110px;
+          z-index: 2;
+        "
+      ></div>
+
+      <a href="../index.html">
+        <img
+          class="menu-acting"
+          src="../assets/tela2/3-tela-2.1-sogesp.png"
+          alt="Menu"
+        />
+      </a>
+      <div class="carousel-buttons">
+        <div class="carousel-button" onclick="scrollCarousel(-1)">
+          <img
+            id="carousel-left-button"
+            src="../assets/button04.png"
+            style="width: 4rem; height: 4rem"
+          />
+        </div>
+        <img
+          id="carousel-right-button"
+          class="carousel-button2 right"
+          src="../assets/button07.png"
+          alt="forward arrow"
+          onclick="scrollCarousel(1)"
+        />
+      </div>
+      <div class="carousel-wrapper-expansion">
+        <div class="carousel-acting">
+          <div class="carousel-item-expansion">
+            <img
+              class="div-image-expansion"
+              src="../assets/tela6/4-tela-6-sogesp.png"
+              alt="Film Image 1"
+            />
+            <p>
+              Em 2022, iniciamos o projeto de
+              <span>expansão do nosso Parque Fabril</span>
+              para suportar nosso crescimento nos prómixos anos e dobrar nossa
+              capacidade produtiva a partir de 2030.
+            </p>
+          </div>
+          <div class="carousel-item-expansion">
+            <!-- <img
+              class="div-image-expansion2"
+              src="../assets/tela6/5-tela-6-sogesp.png"
+              alt="Film Image 2"
+            /> -->
+            <div class="gallery-wrapper">
+              <div class="gallery-images">
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/5-tela-6-sogesp.png"
+                  alt="Image 1"
+                />
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/7-tela-6-sogesp.png"
+                  alt="Image 2"
+                />
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/8-tela-6-sogesp.png"
+                  alt="Image 3"
+                />
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/9-tela-6-sogesp.png"
+                  alt="Image 4"
+                />
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/11-tela-6-sogesp.png"
+                  alt="Image 4"
+                />
+                <img
+                  class="gallery-image"
+                  src="../assets/tela6/12-tela-6-sogesp.png"
+                  alt="Image 4"
+                />
+              </div>
+              <div class="gallery-indicators">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+              </div>
+            </div>
+            <div>
+              <p>
+                No início deste ano, nosso CLV (Centro Logístico de Varginha),
+                foi ampliado.
+              </p>
+              <p>
+                O novo espaço de
+                <span
+                  >12 mil m² tem capacidade de estocar 42 milhões de unidades de
+                  medicamentos</span
+                >, contra 14 milhões da antiga configuração
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item-expansion3">
+            <img
+              class="div-image-expansion3"
+              src="../assets/tela6/10-tela-6-sogesp.png"
+              alt="Film Image 3"
+            />
+            <div>
+              <p>
+                Ainda este ano, daremos mais um importante passo para evoluirmos
+                no <span>desenvolvimento da ciência nacional.</span>
+              </p>
+              <p>
+                Nossa Biotec, dá mais um passo para o desenvolvimento de
+                medicamentos biotécnológicos, com a inauguraçãode uma planta
+                voltada para a produção de biomedicamentos provenientes de
+                diferentes tecnologias. Além disso, vai escalonar bioprocessos,
+                acelerar transferências de tecnologia, produzir materias para
+                estudos pré-clínicos e clínicos e otimizar processos de
+                fabricação dos produtos biológicos já comercializados.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("lottie-icon")
+        .addEventListener("click", function () {
+          window.location.href = "../index.html"
+        })
+    </script>
+    <script>
+      function scrollCarousel(direction) {
+        const carousel = document.querySelector(".carousel-acting")
+        const scrollAmount = 1750 // Adjust based on your design
+
+        // Scroll the carousel
+        carousel.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        })
+
+        // Add a small timeout to ensure scrollLeft is updated
+        setTimeout(() => {
+          checkScrollPosition()
+        }, 200) // Adjust the timeout duration if necessary
+      }
+      function checkScrollPosition() {
+        const carousel = document.querySelector(".carousel-acting")
+        const carouselLeftButton = document.getElementById(
+          "carousel-left-button"
+        )
+        const carouselRightButton = document.getElementById(
+          "carousel-right-button"
+        )
+
+        console.log(carousel.scrollLeft)
+
+        // Check if carousel is at the beginning
+        if (carousel.scrollLeft <= 0) {
+          carouselLeftButton.src = "../assets/button04.png" // Restore the original image
+          carouselRightButton.src = "../assets/button07.png" // Restore the original image
+        } else {
+          carouselLeftButton.src = "../assets/button06.png" // Replace with your new image source
+          carouselLeftButton.style.width = "6rem"
+        }
+
+        // Check if carousel is at the end
+        if (carousel.scrollLeft >= 3500) {
+          carouselRightButton.src = "../assets/button08.png" // Restore the original image
+        } else {
+          carouselRightButton.src = "../assets/button07.png" // Replace with your new image source
+        }
+      }
+
+      // Add an event listener to check the position during manual scroll as well
+      document
+        .querySelector(".carousel-acting")
+        .addEventListener("scroll", checkScrollPosition)
+
+      let slideIndex = 1
+      showSlides(slideIndex)
+
+      function currentSlide(n) {
+        slideIndex = 2 * (n - 1) + 1
+        showSlides(slideIndex)
+      }
+
+      function showSlides(n) {
+        const slides = document.querySelectorAll(".gallery-image")
+        const dots = document.querySelectorAll(".dot")
+        console.log("n2: ", n)
+        // Ensure slideIndex is within the correct range
+        if (n > 11) {
+          slideIndex = 1
+        }
+        if (n < 1) {
+          slideIndex = 11
+        }
+
+        // Apply the correct translation to each slide
+        slides.forEach((slide, index) => {
+          // This line ensures that the images are positioned correctly based on the slideIndex
+          slide.style.transform = `translateX(${
+            (index - (slideIndex - 1)) * 100
+          }%)`
+        })
+
+        // Adjust dot index mapping
+        let dotIndex = Math.ceil(slideIndex / 2) // Since dots skip every other slide
+        // Update the dots to indicate which slide is active
+        dots.forEach(dot => dot.classList.remove("active"))
+        dots[dotIndex - 1].classList.add("active")
+      }
+
+      // Initial call to set up the first slide
+      showSlides(slideIndex)
+    </script>
+  </body>
+</html>

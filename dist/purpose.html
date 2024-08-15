@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Purpose</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var animation = lottie.loadAnimation({
+          container: document.getElementById("lottie-icon"), // ID do contêiner onde o ícone será renderizado
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "../assets/back.json", // Caminho para o arquivo JSON do ícone Lottie
+        })
+      })
+    </script>
     <style>
       /* Add your CSS styles here */
       .container-tela2 {
@@ -27,8 +39,11 @@
       }
       .menu {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 50px;
+        right: 120px;
+        width: 6%;
+        /* top: 0px;
+        left: 0px; */
       }
       .video-wrapper {
         position: absolute;
@@ -62,18 +77,41 @@
         alt="Purpose Text"
       />
       <a href="../index.html">
-        <img class="menu"  id="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" />
+        <img
+          class="menu"
+          id="menu"
+          src="../assets/tela2/3-tela-2.1-sogesp.png"
+          alt="Menu"
+        />
       </a>
       <!-- <img class="menu"  id="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" /> -->
       <div class="video-wrapper">
         <video class="react-player" controls>
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/rstcom-sandbox.appspot.com/o/companies%2Fsogesp%2FLIBBS_PROPOSITO_5040x1680_30FPS_5-1_H264_1_LEGENDADO.mp4?alt=media&token=51281222-112e-475c-b239-6549d001a3e5"
+            src="../assets/tela2/LIBBS_PROPOSITO_5040x1680_30FPS_5-1_H264_1_LEGENDADO_compressed.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <div
+        id="lottie-icon"
+        style="
+          width: 100px;
+          height: 250px;
+          position: absolute;
+          bottom: -42px;
+          right: 110px;
+        "
+      ></div>
     </div>
+    <script>
+      document
+        .getElementById("lottie-icon")
+        .addEventListener("click", function () {
+          window.location.href = "../index.html"
+        })
+    </script>
   </body>
 </html>

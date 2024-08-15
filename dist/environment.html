@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuidado com o meio ambiente</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var animation = lottie.loadAnimation({
+          container: document.getElementById("lottie-icon"), // ID do contêiner onde o ícone será renderizado
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "../assets/back.json", // Caminho para o arquivo JSON do ícone Lottie
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container-tela5">
+      <img src="../assets/tela4/1-tela-4-sogesp.png" />
+      <img class="film-image" src="../assets/tela5/2-tela-5-sogesp.png" />
+      <img
+        class="acting-text"
+        src="../assets/tela4/3-tela-4-sogesp.png"
+        alt="Atuação"
+      />
+      <div
+        id="lottie-icon"
+        style="
+          width: 100px;
+          height: 250px;
+          position: absolute;
+          bottom: -42px;
+          right: 110px;
+          z-index: 2;
+        "
+      ></div>
+
+      <a href="../index.html">
+        <img
+          class="menu-acting"
+          src="../assets/tela2/3-tela-2.1-sogesp.png"
+          alt="Menu"
+        />
+      </a>
+      <div class="carousel-buttons">
+        <div class="carousel-button" onclick="scrollCarousel(-1)">
+          <img
+            id="carousel-left-button"
+            src="../assets/button04.png"
+            style="width: 4rem; height: 4rem"
+          />
+        </div>
+        <img
+          id="carousel-right-button"
+          class="carousel-button2 right"
+          src="../assets/button07.png"
+          alt="forward arrow"
+          onclick="scrollCarousel(1)"
+        />
+      </div>
+      <div class="carousel-wrapper-acting">
+        <div class="carousel-acting">
+          <div class="carousel-item-environment">
+            <img
+              class="div-image-environment"
+              src="../assets/tela5/4-tela-5.1-sogesp.png"
+              alt="Film Image 1"
+            />
+          </div>
+          <div class="carousel-item-environment">
+            <img
+              class="div-image-environment2"
+              src="../assets/tela5/5-tela-5.1-sogesp.png"
+              alt="Film Image 2"
+            />
+          </div>
+          <div class="carousel-item-environment">
+            <img
+              class="div-image-environment3"
+              src="../assets/tela5/6-tela-5.1-sogesp.png"
+              alt="Film Image 3"
+            />
+          </div>
+          <div class="carousel-item-environment">
+            <img
+              class="div-image-environment4"
+              src="../assets/tela5/7-tela-5.1-sogesp.png"
+              alt="Film Image 4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("lottie-icon")
+        .addEventListener("click", function () {
+          window.location.href = "../index.html"
+        })
+    </script>
+    <script>
+      function scrollCarousel(direction) {
+        const carousel = document.querySelector(".carousel-acting")
+        const scrollAmount = 1920 // Adjust based on your design
+
+        // Scroll the carousel
+        carousel.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        })
+
+        setTimeout(() => {
+          checkScrollPosition(direction)
+        }, 200) // Adjust the timeout duration if necessary
+      }
+
+      function checkScrollPosition(direction) {
+        const carousel = document.querySelector(".carousel-acting")
+        const carouselLeftButton = document.getElementById(
+          "carousel-left-button"
+        )
+        const carouselRightButton = document.getElementById(
+          "carousel-right-button"
+        )
+        const divImageEnvironment = document.querySelector(
+          ".div-image-environment"
+        )
+        const divImageEnvironment2 = document.querySelector(
+          ".div-image-environment2"
+        )
+        const divImageEnvironment3 = document.querySelector(
+          ".div-image-environment3"
+        )
+
+        if (carousel.scrollLeft <= 0) {
+          // Update button states
+          carouselLeftButton.src = "../assets/button04.png" // Restore the original image
+          carouselRightButton.src = "../assets/button07.png" // Restore the original image
+        } else {
+          if (
+            carousel.scrollLeft >= 1 &&
+            carousel.scrollLeft < 1920 &&
+            direction === -1
+          ) {
+            console.log(true)
+            carouselLeftButton.src = "../assets/button04.png" // Restore the original image
+          }
+          if (
+            carousel.scrollLeft >= 1 &&
+            carousel.scrollLeft < 1920 &&
+            direction === 1
+          ) {
+            carouselLeftButton.src = "../assets/button06.png" // Replace with your new image source
+            carouselLeftButton.style.width = "6rem"
+          }
+          if (carousel.scrollLeft >= 1920 && carousel.scrollLeft < 3840) {
+            // Apply margin adjustment based on the scroll direction
+            divImageEnvironment.style.marginRight =
+              direction === -1 ? "438px" : "308px"
+            divImageEnvironment2.style.marginRight =
+              direction === -1 ? "294px" : "438px"
+            divImageEnvironment3.style.marginRight =
+              direction === -1 ? "152px" : "600px"
+          } else if (
+            carousel.scrollLeft >= 3706 &&
+            carousel.scrollLeft < 5626
+          ) {
+            console.log("direction2: ", direction)
+            divImageEnvironment2.style.marginRight = direction === -1 && "304px"
+            divImageEnvironment3.style.marginRight =
+              direction === -1 ? "448px" : "460px"
+          }
+        }
+
+        if (carousel.scrollLeft >= 4113 && direction === 1) {
+          carouselRightButton.src = "../assets/button08.png" // Restore the original image
+          carouselRightButton.onclick = null // Disable the button
+        } else {
+          carouselRightButton.src = "../assets/button07.png" // Replace with your new image source
+          carouselRightButton.onclick = function () {
+            scrollCarousel(1)
+          } // Re-enable the button
+        }
+      }
+
+      // Add an event listener to check the position during manual scroll as well
+      document
+        .querySelector(".carousel-acting")
+        .addEventListener("scroll", () => checkScrollPosition)
+    </script>
+  </body>
+</html>

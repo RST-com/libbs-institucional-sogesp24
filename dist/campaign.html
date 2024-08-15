@@ -3,8 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Campaign</title>
+    <title>Campanha</title>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var animation = lottie.loadAnimation({
+          container: document.getElementById("lottie-icon"), // ID do contêiner onde o ícone será renderizado
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "../assets/back.json", // Caminho para o arquivo JSON do ícone Lottie
+        })
+      })
+    </script>
   </head>
   <body>
     <div class="container-tela3">
@@ -16,19 +28,11 @@
       />
       <div class="carousel-wrapper">
         <div class="carousel-button" onclick="scrollCarousel(-1)">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            stroke-width="0"
-            viewBox="0 0 512 512"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
-            ></path>
-          </svg>
+          <img
+            id="carousel-left-button"
+            src="../assets/button04.png"
+            style="width: 4rem; height: 4rem"
+          />
         </div>
         <div class="carousel">
           <div class="carousel-item">
@@ -37,22 +41,6 @@
               src="../assets/tela3/6-tela-3.1-sogesp.png"
               alt="Film Image 1"
             />
-            <!-- <button class="play-button">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M8 5.14v14l11-7-11-7z"
-                  fill="#4CAF50"
-                />
-              </svg>
-            </button> -->
             <img
               class="player-label"
               src="../assets/tela3/player-label.png"
@@ -100,15 +88,25 @@
             <p class="video-text">Assistir vídeo da Ana Paula</p>
           </div>
         </div>
-
         <img
-          id="myImage"
+          id="carousel-right-button"
           class="carousel-button2 right"
-          src="../assets/tela3/arrow-right2.png"
+          src="../assets/button07.png"
           alt="forward arrow"
           onclick="scrollCarousel(1)"
         />
       </div>
+
+      <div
+        id="lottie-icon"
+        style="
+          width: 100px;
+          height: 250px;
+          position: absolute;
+          bottom: -42px;
+          right: 110px;
+        "
+      ></div>
 
       <img
         class="campaign-text"
@@ -117,21 +115,146 @@
       />
 
       <a href="../index.html">
-        <img class="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" />
+        <img
+          class="menu"
+          src="../assets/tela2/3-tela-2.1-sogesp.png"
+          alt="Menu"
+        />
       </a>
-      <!-- <img class="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" /> -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close"
+            ><span>Fechar</span>
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              font-size="54px"
+            >
+              <path
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M368 368 144 144m224 0L144 368"
+              ></path>
+            </svg>
+          </span>
+          <!-- <img id="modal-image" src="" alt="Modal Image" /> -->
+          <div class="video-campaign-wrapper">
+            <video class="react-player" controls>
+              <source class="source-player" src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+      document
+        .getElementById("lottie-icon")
+        .addEventListener("click", function () {
+          window.location.href = "../index.html"
+        })
+      const modal = document.getElementById("modal")
+      const modalImage = document.getElementById("modal-image")
+      const closeModal = document.querySelector(".modal .close")
+      const player = document.querySelector(".react-player")
+      const source = document.querySelector(".source-player")
 
+      document.querySelectorAll(".carousel-item").forEach((item, index) => {
+        item.addEventListener("click", function () {
+          switch (index) {
+            case 0:
+              source.src =
+                "../assets/tela3/JOB 799 - LIBBS - VIDEO PAULISTA_juliette_FINAL_leg-compressed.mp4"
+              break
+            case 1:
+              source.src =
+                "../assets/tela3/JOB_680 - LIBBS - VIVER E DESCOBRIR_maria angela_FINAL_LEGENDADO-compressed.mp4"
+              break
+            case 0:
+              source.src =
+                "../assets/tela3/JOB_680 - LIBBS - VIVER E DESCOBRIR_dalva_Legendado-compressed.mp4"
+              break
+            case 3:
+              source.src =
+                "../assets/tela3/JOB_680 - LIBBS - VIVER E DESCOBRIR_luana_V02_LEGENDADO-compressed.mp4"
+              break
+            default:
+              break
+          }
+          // const imageSrc = this.querySelector(".div-image").src
+          // modalImage.src = imageSrc
+          // player.poster = imageSrc
+          player.load()
+          modal.style.display = "block"
+        })
+      })
+
+      // Close modal
+      closeModal.addEventListener("click", function () {
+        modal.style.display = "none"
+      })
+
+      // Close modal when clicking outside of modal content
+      window.addEventListener("click", function (e) {
+        if (e.target == modal) {
+          modal.style.display = "none"
+        }
+      })
+    </script>
     <script>
       function scrollCarousel(direction) {
         const carousel = document.querySelector(".carousel")
         const scrollAmount = 300 // Adjust based on your design
 
+        // Scroll the carousel
         carousel.scrollBy({
           left: direction * scrollAmount,
           behavior: "smooth",
         })
+
+        // Add a small timeout to ensure scrollLeft is updated
+        setTimeout(() => {
+          checkScrollPosition()
+        }, 200) // Adjust the timeout duration if necessary
       }
+      function checkScrollPosition() {
+        const carousel = document.querySelector(".carousel")
+        const carouselLeftButton = document.getElementById(
+          "carousel-left-button"
+        )
+        const carouselRightButton = document.getElementById(
+          "carousel-right-button"
+        )
+
+        // Check if carousel is at the beginning
+        if (carousel.scrollLeft <= 0) {
+          carouselLeftButton.src = "../assets/button04.png" // Restore the original image
+          carouselRightButton.src = "../assets/button07.png" // Restore the original image
+        } else {
+          carouselLeftButton.src = "../assets/button06.png" // Replace with your new image source
+          carouselLeftButton.style.width = "6rem"
+        }
+
+        // Check if carousel is at the end
+        if (carousel.scrollLeft >= 972) {
+          carouselRightButton.src = "../assets/button08.png" // Restore the original image
+        } else {
+          carouselRightButton.src = "../assets/button07.png" // Replace with your new image source
+        }
+      }
+
+      // Add an event listener to check the position during manual scroll as well
+      document
+        .querySelector(".carousel")
+        .addEventListener("scroll", checkScrollPosition)
     </script>
   </body>
 </html>
