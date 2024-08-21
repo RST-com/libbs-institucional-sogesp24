@@ -8,16 +8,27 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var animation = lottie.loadAnimation({
-          container: document.getElementById("lottie-icon"), // ID do contêiner onde o ícone será renderizado
+          container: document.getElementById("lottie-icon"), // ID of the container where the icon will be rendered
           renderer: "svg",
           loop: true,
           autoplay: true,
-          path: "../assets/back.json", // Caminho para o arquivo JSON do ícone Lottie
+          path: "../assets/back.json", // Path to the Lottie icon JSON file
+        })
+        const video = document.getElementById("backgroundVideo")
+        video.load()
+        video.play().catch(function (error) {
+          console.log("Autoplay was prevented: ", error)
         })
       })
     </script>
     <style>
-      /* Add your CSS styles here */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
       .container-tela2 {
         position: relative;
         width: 100%;
@@ -42,8 +53,6 @@
         top: 50px;
         right: 120px;
         width: 6%;
-        /* top: 0px;
-        left: 0px; */
       }
       .video-wrapper {
         position: absolute;
@@ -52,7 +61,6 @@
         transform: translate(-50%, -50%);
         width: 99%;
         max-width: 1340px;
-        /* aspect-ratio: 16 / 9; */
         background-color: #e0e0e0;
         border-radius: 10px;
         overflow: hidden;
@@ -84,9 +92,8 @@
           alt="Menu"
         />
       </a>
-      <!-- <img class="menu"  id="menu" src="../assets/tela2/3-tela-2-sogesp.png" alt="Menu" /> -->
       <div class="video-wrapper">
-        <video class="react-player" controls autoplay>
+        <video autoplay class="react-player" id="backgroundVideo" controls>
           <source src="../assets/tela2/libbs-proposito.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
